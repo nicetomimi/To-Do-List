@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  background-image: url(./img/high-angle-desk-arrangement.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  box-sizing: border-box;
+  background-color: white;
+  min-height: 100vh;
+  box-shadow: 5px 5px 20px;
+  padding-top: 2em;
+}
+
+.task-area {
+  border: 1px solid lightgray;
+  margin-top: 2em;
+}
+
+.task-tabs {
+  background-color: rgb(247, 245, 247);
+  display: flex;
+  position: relative;
+  padding: 1em;
+}
+
+.task-tabs a {
+  margin-right: 3em;
+  padding-left: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+#under-line {
+  height: 4px;
+  background-color: rgb(0, 125, 86);
+  position: absolute;
+  width: 80px;
+  left: 0;
+  top: 53px;
+  padding: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
