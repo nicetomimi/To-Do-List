@@ -10,10 +10,17 @@ let textInput = document.getElementById("text-input");
 let addButton = document.getElementById("add-btn");
 addButton.addEventListener("click", addTask);
 let taskList = [];
+textInput.addEventListener("focus",function() {textInput.value=""})
+
 
 function addTask() {
-  let taskContent = textInput.value;
-  taskList.push(taskContent);
+  // let taskContent = textInput.value;
+  let task = {
+    id: randomIdGenerate(),
+    taskContent: textInput.value,
+    isComplete:false
+  }
+  taskList.push(task);
   console.log(taskList);
   render();
 }
@@ -21,14 +28,51 @@ function addTask() {
 function render() {
   let resultHTML = "";
   for (let i = 0; i < taskList.length; i++) {
-    resultHTML += `<div class="task">
-        <div>${taskList[i]}</div>
+    if(taskList[i].isComplete == true) {
+      resultHTML += `<div class="task">
+        <div class="task-done">${taskList[i].taskContent}</div>
         <div>
-       <button class="check-btn">check</button>
-       <button class="delete-btn">delete</button>
+       <button onclick="toggleComplete('${taskList[i].id}')" class="check-btn">check</button>
+       <button onclick="deleteTask('${taskList[i].id}')" class="delete-btn">delete</button>
         </div>
     </div>
-        `;
+        `
+    } else {
+      resultHTML += `<div class="task">
+      <div>${taskList[i].taskContent}</div>
+      <div>
+     <button onclick="toggleComplete('${taskList[i].id}')" class="check-btn">check</button>
+     <button onclick="deleteTask('${taskList[i].id}')" class="delete-btn">delete</button>
+      </div>
+  </div>
+      `
+    }
   }
   let taskBoard = (document.getElementById("task-board").innerHTML = resultHTML);
+}
+
+function toggleComplete(id){
+ console.log(id)
+ for(let i = 0; i < taskList.length; i++){
+     if(taskList[i].id == id) {
+      taskList[i].isComplete = !taskList[i].isComplete // true만 고정이 아니라, true/false 왔다갔다하게 해주는 !
+      break
+     }
+ }
+ render()
+ console.log(taskList)
+}
+
+function deleteTask(id){
+  for(let i=0;i<taskList.length;i++){
+   if(taskList[i].id == id){
+    taskList.splice(i,1)
+    break
+   }
+  }
+  render() 
+}
+
+function randomIdGenerate(){
+  return Math.random().toString(36).substr(2, 16);
 }
