@@ -32,8 +32,8 @@ function render() {
       resultHTML += `<div class="task">
         <div class="task-done">${taskList[i].taskContent}</div>
         <div>
-       <button onclick="toggleComplete('${taskList[i].id}')" class="check-btn">check</button>
-       <button onclick="deleteTask('${taskList[i].id}')" class="delete-btn">delete</button>
+       <button onclick="toggleComplete('${taskList[i].id}')" type="button" class="check-btn btn btn-dark"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i></button>
+       <button onclick="deleteTask('${taskList[i].id}')" type="button" class="delete-btn btn btn-danger"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
         </div>
     </div>
         `
@@ -41,8 +41,8 @@ function render() {
       resultHTML += `<div class="task">
       <div>${taskList[i].taskContent}</div>
       <div>
-     <button onclick="toggleComplete('${taskList[i].id}')" class="check-btn">check</button>
-     <button onclick="deleteTask('${taskList[i].id}')" class="delete-btn">delete</button>
+     <button onclick="toggleComplete('${taskList[i].id}')" type="button" class="check-btn btn btn-success"><i class="fa-solid fa-check" style="color: #ffffff;"></i></button>
+     <button onclick="deleteTask('${taskList[i].id}')" type="button" class="delete-btn btn btn-danger"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
       </div>
   </div>
       `
@@ -74,5 +74,5 @@ function deleteTask(id){
 }
 
 function randomIdGenerate(){
-  return Math.random().toString(36).substr(2, 16);
+  return Math.random().toString(36).substr(2, 16); //id생성
 }
