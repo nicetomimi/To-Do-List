@@ -25,7 +25,7 @@ input{
   border: 1px solid rgb(207, 207, 207);
 }
 
-.btn{
+.plus-btn{
   position: relative;
   left: -55px;
   margin-bottom: 5px;
@@ -75,6 +75,8 @@ input{
   border-radius: 50%;
 }
 
+
+
 @media screen and (max-width: 770px) {
   input{
     width: 85%;
@@ -84,7 +86,7 @@ input{
     border: 1px solid rgb(207, 207, 207);
   }
   
-  .btn{
+  .plus-btn{
     position: relative;
     left: -55px;
     margin-bottom: 5px;
