@@ -1,103 +1,174 @@
-body {
-  margin: 0;
-  background-image: url(./img/high-angle-desk-arrangement.jpg);
+body{
+  width:100%;
+  height:100vh;
+  margin:0;
+  background-color:#f7f7f7;
+  position: relative;
+  background-image: url(./GettyImages-641479502.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-h1 {
-  margin-bottom: 30px;
+h1{
+  width:100%;
+  padding:40px 0 30px;
+  margin:0;
+  font-size:2rem;
+  line-height: 1;
 }
 
-.container-box {
+.container * {
   box-sizing: border-box;
-  background-color: white;
-  width: 600px;
-  height: 850px;
-  border-radius: 30px;
-  box-shadow: 5px 5px 20px;
-  padding-top: 2em;
-  text-align: center;
-  margin: auto;
-  margin-top: 30px;
-
 }
-
-input{
-  width: 500px;
-  height: 55px;
-  border-radius: 50px;
-  padding-left: 15px;
-  padding-right: 65px;
-  border: 1px solid rgb(207, 207, 207);
-  margin-bottom: 40px;
-
-}
-
-.plus-btn{
-  position: relative;
-  left: -55px;
-  margin-bottom: 5px;
-}
-
-.task-area {
-  width: 550px;
-  border: 1px solid lightgray;
-  margin: auto;
-}
-
-.task-tabs {
-  background-color: rgb(247, 245, 247);
-  display: flex;
-  position: relative;
-  padding: 1em;
-}
-
-.task-tabs div{
-  margin-right: 3em;
-  cursor:pointer;
-}
-
-#under-line {
-  height: 4px;
-  background-color: rgb(0, 125, 86);
+.container{
   position: absolute;
-  width: 32px;
-  left: 30;
-  top: 53px;
-  padding: 0;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  width:100%;
+  max-width: 500px;
+  height: 1000px;
+  max-height:80vh;
+  background-color: white;
+  text-align:center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 20px;
+}
+
+.input-area{
+  width:86%;
+  margin:0 auto;
+  background:#f7f7f7;
+  border-radius: 10px;
+  height:40px;
+  margin-bottom:40px;
+  display: flex;
+  text-align: left;
+}
+
+
+#task-input{
+  flex: 1 1 auto;
+  border:0;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  background:#f7f7f7;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 20px;
+}
+
+#task-input:focus{
+  outline: none;
+}
+
+#add-button{
+  flex: 0 0 40px;
+  width:40px;
+  border:0;
+  background:transparent;
+  cursor: pointer;
+}
+.task-tabs{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.task-tabs div{
+  padding-bottom: 10px;
+  margin: 0 1rem;
+  cursor: pointer;
+  color:#222;
+}
+#under-line{
+  height: 2px;
+  background-color: #202020;
+  position: absolute;
+  top: 30px;
+  padding:0;
+  margin:0;
   transition: 0.4s;
 }
 
-.task {
+.task-area{
+  width: 100%;
+  height: calc(100% - 2rem - 150px);
   display: flex;
+  flex-direction: column;
+}
+.task-tabs{
+  width: 100%;
+  flex: 0 0 40px;
+}
+#task-board{
+  flex:1 1 auto;
+  width: 100%;
+  padding: 10px 0 10px 0;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap:10px;
+}
+
+.task{
+  width:100%;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  width:86%;
+  border-bottom : 1px solid rgb(210, 210, 210); 
+  gap:10px
+}
+.task.task-done{
+  background:#eee;
+}
+.check-button{
+  flex: 0 0 40px;
+  width:40px;
+}
+.check-button button{
+  background: url('/check.svg') #5093E2;
+  width:36px;
+  height:36px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border:0;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.delete-button button{
+  background: url('/close.svg') transparent;
+  width:20px;
+  height:20px;
+  border:0;
+  border-radius: 100%;  
+  cursor: pointer;
+}
+.task-contain{
+  width:100%;
+  display: flex;
+  flex: 1 1 auto;
   justify-content: space-between;
-  margin: 1em; 
-  padding-right: 20px;
+  align-items: center;
 }
+.task-memo{
+  width:100%;
 
-.task-done{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.task-memo span{
+  font-size:12px;
+  color:#999;
+}
+.task-done .task-memo{
   text-decoration: line-through;
-  background-color: rgb(226, 226, 226);
 }
-
-.btn {
-  border-radius: 50%;
+.task-done .check-button button{
+  background: url('./check.svg') #aaa;
 }
-
-@media screen and (max-width: 770px) {
-  input{
-    width: 85%;
-    height: 55px;
-    border-radius: 50px;
-    padding-left: 15px;
-    border: 1px solid rgb(207, 207, 207);
-  }
-  
-  .plus-btn{
-    position: relative;
-    left: -55px;
-    margin-bottom: 5px;
-  }
- }
- 
